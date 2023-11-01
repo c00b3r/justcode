@@ -43,3 +43,14 @@ switch(health){
         console.log(`Ваш уровень здоровья ${health}`)
     break
 }
+
+//4 задание 
+function checkUser(userName,age){
+    if (userName === "Aleksandr") {
+        console.log(`Приветствую, ${userName}, вам ${age} лет`);
+      } else {
+        console.log("Вы еще не зарегистрованы");
+      }
+}
+
+checkUser(name,21)
