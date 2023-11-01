@@ -9,7 +9,7 @@ if (name == "Aleksandr") {
 }
 
 // 2 задание
-let health = 123;
+let health = 50;
 
 if (health == 100) {
   console.log("Вы здоровы");
@@ -23,4 +23,23 @@ if (health == 100) {
   console.log("Вы мертвы");
 } else {
   console.log(`Ваш уровень здоровья ${health}`);
+}
+
+// 3 задание
+switch(health){
+    case 100:
+        console.log('Вы здоровы')
+    break
+    case 75:
+        console.log('Вы ранены')
+    break
+    case 50:
+        console.log('Вам надо подлечится')
+    break
+    case 0:
+        console.log('Вы мертвы')
+    break
+    default:
+        console.log(`Ваш уровень здоровья ${health}`)
+    break
 }
