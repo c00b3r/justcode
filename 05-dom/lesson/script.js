@@ -51,5 +51,4 @@ const createTask = (task) => {
 
 taskItem.append(createTask(taskData));
 
-aboba/
 // createTask(task)
