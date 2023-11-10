@@ -31,7 +31,7 @@ const user = {
 
 user.greet();
 
-// 3 
+// 3
 // Создайте объект calculator с методами add, minus, multiply и divide, которые принимают
 // два числа в качестве аргументов и выполняют соответствующую математическую операцию, возвращая результат.
 
@@ -133,29 +133,31 @@ console.log(arr1);
 // 4
 // Добавьте новый элемент в конец массива и выведите обновленный массив.
 
-arr1.push('clown')
-console.log(arr1)
+arr1.push("clown");
+console.log(arr1);
 
 // 5
 // Удалите первый элемент из массива и выведите обновленный массив.
 
-const newArr = arr1.shift()
-console.log(newArr)
+const newArr = arr1.shift();
+console.log(newArr);
 
 // 6
 // Используя метод join(), объедините все элементы массива в одну строку, разделенную запятой.
 
-const arrStr = ['a','b','o','b','a']
+const arrStr = ["a", "b", "o", "b", "a"];
 
-const str = arrStr.join('')
+const str = arrStr.join("");
 
-console.log(str)
+console.log(str);
 
 // 7
 // Проверьте, содержит ли массив определенный элемент, и выведите соответствующее сообщение.
 
-const arr2=['1',2,'3','4']
+const arr2 = ["1", 2, "3", "4"];
 
-const isHave = arr2.filter((element) => {return element === 2})
+const isHave = arr2.filter((element) => {
+  return element === 2;
+});
 
-console.log(isHave)
+console.log(isHave);
