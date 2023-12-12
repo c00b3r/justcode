@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h3>Список задач</h3>
+    <div class="task-container"></div>
+
+    <div class="item">
+      <input type="checkbox" class="complete" name="" id="" />
+      <div class="info">
+        <h3 class="title">Заголовок</h3>
+        <p class="description">Описание</p>
+      </div>
+    </div>
+
+    <div class="modal-wrapper">
+      <div class="modal">
+        <form action="" class="modal-form">
+          <label for="title"
+          >Название задачи: <input type="text" id="title"
+        /></label>
+        <label for="description"
+          >Описание задачи: <input type="text" id="description"
+        /></label>
+        <label for="isComplete"
+          >Статус выполнения: <input type="checkbox" id="isComplete" class="checkbox"
+        /></label>
+        <div class="modal-form-control">
+          <button class="btn outline" id="modal-save" type="submit">
+            Сохранить
+          </button>
+            <button class="btn outline" id="modal-cancel" type="button">
+            Отменить
+          </button>
+        </div>
+        </form>
+        
+      </div>
+    </div>
+    <script src="lesson/script.js"></script>
+  </body>
+</html>
