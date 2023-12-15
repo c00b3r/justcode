@@ -6,34 +6,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h3>Список задач</h3>
-    <div class="task-container"></div>
-
-    <div class="item">
-      <input type="checkbox" class="complete" name="" id="" />
-      <div class="info">
-        <h3 class="title">Заголовок</h3>
-        <p class="description">Описание</p>
-      </div>
+    
+    <div class="header">
+      <h3>Список задач</h3>
+      <button class="btn" id="add-task">Добавить задачу</button>
     </div>
+    <div class="task-container"></div>
 
     <div class="modal-wrapper">
       <div class="modal">
         <form action="" class="modal-form">
           <label for="title"
-          >Название задачи: <input type="text" id="title"
+          >Название задачи: <input type="text" id="title" name="title" required
         /></label>
         <label for="description"
-          >Описание задачи: <input type="text" id="description"
+          >Описание задачи: <input type="text" id="description" name="description" required
         /></label>
         <label for="isComplete"
-          >Статус выполнения: <input type="checkbox" id="isComplete" class="checkbox"
+          >Статус выполнения: <input type="checkbox" id="isComplete" class="checkbox" name="isComplete"
         /></label>
         <div class="modal-form-control">
           <button class="btn outline" id="modal-save" type="submit">
             Сохранить
           </button>
-            <button class="btn outline" id="modal-cancel" type="button">
+            <button class="btn outline" id="modal-cancel" type="button" id="modal-cancel">
             Отменить
           </button>
         </div>
