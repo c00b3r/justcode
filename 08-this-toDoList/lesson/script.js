@@ -1,31 +1,31 @@
 // структура задачи
 const taskData = [
   {
-    id: 700,
-    title: "Имя задачи",
-    description: "Описание задачи",
-    isComplete: false,
+    id: 1,
+    title: "Сделать дз",
+    description: "сделаь",
+    isComplete: true,
   },
   {
-    id: 701,
+    id: 2,
     title: "Имя задачи",
     description: "Описание задачи",
     isComplete: true,
   },
   {
-    id: 702,
+    id: 3,
     title: "Имя задачи",
     description: "Описание задачи",
     isComplete: false,
   },
   {
-    id: 703,
+    id: 4,
     title: "Имя задачи",
     description: "Описание задачи",
     isComplete: true,
   },
   {
-    id: 704,
+    id: 5,
     title: "Имя задачи",
     description: "Описание задачи",
     isComplete: false,
@@ -50,15 +50,24 @@ const toDoList = {
     this.data = this.data.concat(task);
     this.container.insertAdjacentHTML("beforeend", this.createTask(task));
   },
+
   createTask(task) {
     const isChecked = task.isComplete ? "checked" : "";
 
-    const html = ` <div class="item"> 
+    const html = ` <div class="item" data-id=${task.id}> 
             <input class="complete" type="checkbox" id="${task.id}" name="${task.id}"  ${isChecked}/> 
             <div class="info"> 
               <h3 class="title">${task.title}</h3>
               <p class="description">${task.description}</p>
             </div> 
+            <div class="button">
+              <button class="btn outline" id="task-edit" type="button" data-id=${task.id}> 
+                Редактировать
+              </button>
+              <button class="btn outline" id="task-delete" type="button"s>
+                Удалить
+              </button>
+            </div>
           </div> `;
     return html;
   },
@@ -66,6 +75,10 @@ const toDoList = {
   generateID() {
     return this.data.length + 1;
   },
+
+  editTask() {
+
+  }
 };
 
 toDoList.render(taskData);
@@ -74,6 +87,8 @@ const addTask = document.querySelector("#add-task");
 const modalWrapper = document.querySelector(".modal-wrapper");
 const modalCancel = document.querySelector("#modal-cancel");
 const modal = document.querySelector(".modal");
+const editTask = document.querySelector("#task-edit");
+const deleteTask = document.querySelector("#task-delete");
 
 const setModalVisible = (visible) => {
   if (visible) {
@@ -87,6 +102,33 @@ const handleAddTask = () => {
   setModalVisible(true);
 };
 
+// пофиксить
+const handleEditTask = (element) => {
+  console.log(element)
+  setModalVisible(true);
+  const title = document.querySelector("#title");
+  const description = document.querySelector("#description");
+  const isChecked = document.querySelector("#isComplete");
+  const id = element.dataset.id
+  console.log(id)
+  
+  toDoList.data.forEach((element) => {
+    if(element.id == id){
+      title.value = element.title;
+      description.value = element.description;
+      isChecked.checked = element.isComplete;
+    }
+  })
+};
+
+document.addEventListener('click', function (event) {
+  if (event.target.matches('#task-edit')){
+    console.log(event.target)
+    handleEditTask(event.target)
+  } else return
+});
+// editTask.addEventListener("click", handleEditTask);
+
 const handleModalOverlay = (event) => {
   if (event.target.classList.contains("modal-wrapper")) {
     setModalVisible(false);
@@ -98,12 +140,12 @@ modalCancel.addEventListener("click", () => setModalVisible(false));
 modalWrapper.addEventListener("click", handleModalOverlay);
 
 const modalForm = document.querySelector(".modal-form");
-
+// разделить сабмит
 modalForm.addEventListener("submit", (e) => {
   const data = serializeForm(modalForm);
   e.preventDefault();
-  console.log(data);
   data.id = toDoList.generateID();
+
 
   toDoList.renderTask(data);
   modalForm.reset();
@@ -118,11 +160,10 @@ const serializeForm = (form) => {
   const mainArray = arrayElement.filter((element) => {
     return element.name;
   });
-  console.log(mainArray);
   mainArray.forEach((element) => {
     if (element.type === "checkbox") data[element.name] = element.checked;
     else data[element.name] = element.value;
   });
-
+  
   return data;
 };
