@@ -16,7 +16,8 @@
         padding: var(--padding);
         display: flex;
         align-items: center;
-        gap: var(--gap);
+        justify-content: space-around;
+        
         font-size: var(--font-size);
         box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
         background: var(--main-color);
@@ -27,6 +28,7 @@
 .item-subtitle {
         font-size: 16px;
 }
+
 
 .blue-item {
         color: blue !important;
